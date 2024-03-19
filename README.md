@@ -1,1 +1,3 @@
-# property-price-prediction
+## Description
+
+Forecasting real estate prices using machine learning
