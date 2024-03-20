@@ -1,35 +1,49 @@
 import streamlit as st
 import joblib
-import pandas as pd
 
-# Загрузка модели
-model = joblib.load("model_lr.joblib")
+# Загрузка обученной модели
+model = joblib.load("model_rf.joblib")
 
-# Заголовок
-st.title("House Price Prediction")
+# Заголовок приложения
+st.title("House Price Prediction App")
 
-# Ввод параметров
-total_area = st.number_input("Total Area", min_value=0.0, max_value=1000.0, step=0.1)
-floor = st.number_input("Floor", min_value=0, max_value=100, step=1)
-floors_number = st.number_input("Floors Number", min_value=0, max_value=100, step=1)
-longitude = st.number_input("Longitude", min_value=-180.0, max_value=180.0, step=0.1)
-latitude = st.number_input("Latitude", min_value=-90.0, max_value=90.0, step=0.1)
-is_auction = st.selectbox("Is Auction", ["Yes", "No"])
-is_auction = 1 if is_auction == "Yes" else 0
+# Ввод данных пользователем
+total_area = st.number_input("Total Area", min_value=0.0, step=0.01)
+rooms_count = st.number_input("Number of Rooms", min_value=0.0, step=1.0)
+floor = st.number_input("Floor", min_value=0.0, step=1.0)
+floors_number = st.number_input("Total Number of Floors", min_value=0.0, step=1.0)
+isСomplete = st.selectbox("Is the House Complete?", [0, 1])
+longitude = st.number_input("Longitude")
+latitude = st.number_input("Latitude")
+is_auction = st.selectbox("Is it an Auction?", [0, 1])
+region_ekb = st.selectbox("Region Ekaterinburg", [0, 1])
+region_kzn = st.selectbox("Region Kazan", [0, 1])
+region_msk = st.selectbox("Region Moscow", [0, 1])
+region_nng = st.selectbox("Region Nizhny Novgorod", [0, 1])
+region_nsk = st.selectbox("Region Novosibirsk", [0, 1])
+region_spb = st.selectbox("Region Saint Petersburg", [0, 1])
 
 # Прогнозирование цены
-input_data = pd.DataFrame(
-    {
-        "total_area": [total_area],
-        "floor": [floor],
-        "floors_number": [floors_number],
-        "longitude": [longitude],
-        "latitude": [latitude],
-        "is_auction": [is_auction],
-    }
-)
-prediction = model.predict(input_data)
+input_data = [
+    [
+        total_area,
+        rooms_count,
+        floor,
+        floors_number,
+        isСomplete,
+        longitude,
+        latitude,
+        is_auction,
+        region_ekb,
+        region_kzn,
+        region_msk,
+        region_nng,
+        region_nsk,
+        region_spb,
+    ]
+]
+predicted_price = model.predict(input_data)
 
-# Вывод результата
+# Вывод предсказанной цены
 st.subheader("Predicted Price:")
-st.write(prediction[0])
+st.write(predicted_price)
