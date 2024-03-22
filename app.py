@@ -1,5 +1,5 @@
-import streamlit as st
 import joblib
+import streamlit as st
 
 # Загрузка обученной модели
 model = joblib.load("model_rf.joblib")
