@@ -11,7 +11,9 @@ st.title("House Price Prediction App")
 total_area = st.number_input("Total Area", min_value=0.0, step=0.01)
 rooms_count = st.number_input("Number of Rooms", min_value=0.0, step=1.0)
 floor = st.number_input("Floor", min_value=0.0, step=1.0)
-floors_number = st.number_input("Total Number of Floors", min_value=0.0, step=1.0)
+floors_number = st.number_input(
+    "Total Number of Floors", min_value=0.0, step=1.0
+)
 isСomplete = st.selectbox("Is the House Complete?", [0, 1])
 longitude = st.number_input("Longitude")
 latitude = st.number_input("Latitude")

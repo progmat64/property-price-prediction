@@ -1,9 +1,9 @@
-import streamlit as st
-from streamlit_folium import st_folium
 import folium as fl
 import pandas as pd
+import streamlit as st
+from streamlit_folium import st_folium
 
-geojson_file = 'ao.geojson' # загрузка границ районов города
+geojson_file = "ao.geojson"  # загрузка границ районов города
 
 # @st.cache_data
 # def load_data():
@@ -15,13 +15,13 @@ geojson_file = 'ao.geojson' # загрузка границ районов го�
 def get_pos(lat, lng):
     return lat, lng
 
-m = fl.Map(location=[55.751244, 37.618423], zoom_start=10, tiles='CartoDB Positron')
+
+m = fl.Map(
+    location=[55.751244, 37.618423], zoom_start=10, tiles="CartoDB Positron"
+)
 
 # Добавление слоя GeoJSON
-fl.GeoJson(
-    geojson_file,
-    name='geojson'
-).add_to(m)
+fl.GeoJson(geojson_file, name="geojson").add_to(m)
 
 
 # def get_color(price):
@@ -61,5 +61,5 @@ if map.get("last_clicked"):
     data = get_pos(map["last_clicked"]["lat"], map["last_clicked"]["lng"])
 
 if data is not None:
-    st.write(data) # Writes to the app
-    print(data) # Writes to terminal
+    st.write(data)  # Writes to the app
+    print(data)  # Writes to terminal
