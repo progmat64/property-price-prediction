@@ -14,6 +14,8 @@ first_pay = st.number_input("Initial payment", min_value=10000.0, step=1.0)
 year = st.number_input("Loan term", min_value=1.0, step=1.0)
 rate = st.number_input("Loan rate", min_value=1.0, step=0.1)
 
+rate = rate / 100
+
 month_pay = (
     (predicted_price - first_pay)
     * (rate / 12)
