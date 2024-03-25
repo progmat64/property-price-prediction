@@ -7,7 +7,7 @@ st.set_page_config(
     page_title="UrbanRate", page_icon="🏠", initial_sidebar_state="auto"
 )
 
-model = joblib.load("model_xgb.joblib")
+model = joblib.load("xgb_model_tuned.joblib")
 
 material_mapping = {
     "monolith": 1,
