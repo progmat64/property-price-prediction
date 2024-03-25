@@ -10,7 +10,7 @@ A web application for predicting real estate prices and calculating mortgages us
 
 </details>
 
-![Screenshot](https://github.com/progmat64/property-price-prediction/blob/main/house_price_prediction.png)
+![Screenshot](https://github.com/progmat64/property-price-prediction/blob/main/house-price-prediction.png)
 
 ### Developers:
 - [progmat64 (Александр)](https://github.com/progmat64)
