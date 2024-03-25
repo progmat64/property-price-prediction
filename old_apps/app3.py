@@ -46,11 +46,11 @@ total_area = st.number_input(
     "Total Area", min_value=10.0, max_value=5000.0, step=0.01
 )
 rooms_count = st.number_input(
-    "Number of Rooms", min_value=1.0, max_value=100.0, step=1.0
+    "Number of rooms", min_value=1.0, max_value=100.0, step=1.0
 )
 floor = st.number_input("Floor", min_value=1.0, max_value=2000.0, step=1.0)
 floors_number = st.number_input(
-    "Total Number of Floors", min_value=1.0, max_value=2000.0, step=1.0
+    "Total number of floors", min_value=1.0, max_value=2000.0, step=1.0
 )
 material_options = list(material_mapping.keys())
 selected_material = st.selectbox(
@@ -62,12 +62,15 @@ if selected_material is None:
 else:
     house_material = material_mapping[selected_material]
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 with col1:
-    checkbox_balcony = st.radio("Balcony", ["Yes", "No"])
-    balcony = 1 if checkbox_balcony == "Yes" else 0
+    checkbox_isСomplete = st.radio("Is the house built?", ["Yes", "No"])
+    isСomplete = 1 if checkbox_isСomplete == "Yes" else 0
 with col2:
-    checkbox_is_auction = st.radio("Is it an Auction?", ["Yes", "No"])
+    checkbox_balcony = st.radio("Is there a balcony?", ["Yes", "No"])
+    balcony = 1 if checkbox_balcony == "Yes" else 0
+with col3:
+    checkbox_is_auction = st.radio("At the auction?", ["Yes", "No"])
     is_auction = 1 if checkbox_is_auction == "Yes" else 0
 
 selected_region = st.selectbox("Select Region", regions)
@@ -110,6 +113,7 @@ else:
             rooms_count,
             floor,
             floors_number,
+            isСomplete,
             house_material,
             balcony,
             longitude,
@@ -121,3 +125,5 @@ else:
     predicted_price = model.predict(input_data)
     st.subheader("Predicted price:")
     st.write(predicted_price)
+    st.text("### Predicted price:\n\n**{predicted_price}**")
+    st.write("**Предсказанная цена:** `{}`".format(predicted_price))
