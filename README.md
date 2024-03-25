@@ -9,3 +9,5 @@ A web application for predicting real estate prices and calculating mortgages us
  - Google Colab
 
 </details>
+
+![Screenshot](https://github.com/progmat64/property-price-prediction/blob/main/1.jpg)
