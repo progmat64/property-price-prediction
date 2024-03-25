@@ -1,3 +1,11 @@
-## Description
+# House price prediction
+A web application for predicting real estate prices and calculating mortgages using machine learning methods. Users can enter data about the desired property, the application algorithm analyzes market trends and provides a price forecast. It is also possible to calculate a mortgage taking into account various parameters such as the loan amount, interest rate, term, etc. Users can get accurate and reliable data to make informed decisions about buying real estate and taking a mortgage.
 
-Forecasting real estate prices using machine learning
+<details>
+<summary>Project stack</summary>
+
+ - Python
+ - Streamlit
+ - Google Colab
+
+</details>
